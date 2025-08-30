@@ -5,7 +5,7 @@ A beautiful chatbot interface with Nigerian flag colors that connects to an Olla
 ## Quick Start
 
 ### Option 1: Direct Browser (Simplest)
-Just open `index.html` in your browser and use `http://localhost:3000` as the proxy (see proxy setup below).
+Just open `index.html` in your browser and use `http://localhost:3010` as the proxy (see proxy setup below).
 
 ### Option 2: With Local Server
 ```bash
