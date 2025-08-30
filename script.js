@@ -1,4 +1,6 @@
-const OLLAMA_API_URL = 'https://ollama-xoa4.onrender.com';
+// Use localhost:3010 proxy to avoid CORS issues (port updated)
+// If proxy is not running, fallback to direct URL (might have CORS issues)
+const OLLAMA_API_URL = 'http://localhost:3010';
 
 const chatMessages = document.getElementById('chatMessages');
 const messageInput = document.getElementById('messageInput');
@@ -13,7 +15,7 @@ function addMessage(content, isUser = false) {
     
     const senderSpan = document.createElement('span');
     senderSpan.className = 'message-sender';
-    senderSpan.textContent = isUser ? 'You' : 'NigeriaAI';
+    senderSpan.textContent = isUser ? 'You' : 'AfricAI GPT';
     
     const contentDiv = document.createElement('div');
     contentDiv.className = 'message-content';
@@ -30,7 +32,7 @@ function showTypingIndicator() {
     const typingDiv = document.createElement('div');
     typingDiv.className = 'message bot-message typing-message';
     typingDiv.innerHTML = `
-        <span class="message-sender">NigeriaAI</span>
+        <span class="message-sender">AfricAI GPT</span>
         <div class="typing-indicator">
             <span></span>
             <span></span>
