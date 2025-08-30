@@ -1,0 +1,19 @@
+{
+  "name": "naija-gpt",
+  "version": "1.0.0",
+  "description": "Naija GPT - AI Chatbot with Nigerian flag colors",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "serve": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "ai",
+    "chatbot",
+    "ollama",
+    "nigeria",
+    "africa"
+  ],
+  "author": "",
+  "license": "MIT"
+}

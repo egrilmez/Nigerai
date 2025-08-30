@@ -1,65 +1,146 @@
-# AfricAI GPT Chatbot
+# Naija GPT Chatbot
 
-A beautiful chatbot interface with Nigerian flag colors that connects to an Ollama AI service.
+A beautiful AI chatbot interface with Nigerian flag colors (green and white) that connects to an Ollama AI service.
 
-## Quick Start
+## 🚀 Quick Start
 
-### Option 1: Direct Browser (Simplest)
-Just open `index.html` in your browser and use `http://localhost:3010` as the proxy (see proxy setup below).
+### Deploy to Vercel (Recommended)
 
-### Option 2: With Local Server
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/naija-gpt)
+
+Or deploy manually:
+
 ```bash
-# Start web server
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Follow the prompts
+```
+
+### Local Development
+
+```bash
+# Option 1: Python
 python3 -m http.server 8000
 
-# In another terminal, start the proxy server (required for CORS)
-node proxy-server.js
+# Option 2: Node.js
+npx http-server -p 8000
 
-# Open browser to http://localhost:8000
+# Option 3: Direct file
+Open index.html in your browser
 ```
 
-## CORS Proxy Setup
+## ⚠️ IMPORTANT: CORS Configuration
 
-Due to CORS restrictions, you need to run the proxy server:
+For the chatbot to work, the Ollama server at `https://ollama-xoa4.onrender.com` needs to be configured with CORS headers.
+
+### On the Ollama Server
+
+The server needs to be started with CORS enabled:
 
 ```bash
-node proxy-server.js
+# Allow all origins (development)
+OLLAMA_ORIGINS="*" ollama serve
+
+# Or for production (replace with your Vercel domain)
+OLLAMA_ORIGINS="https://your-app.vercel.app" ollama serve
 ```
 
-This will start a proxy on `http://localhost:3000` that forwards requests to your Ollama service.
-
-## Pulling Models
-
-Your Ollama service needs models. To pull a model:
+### Alternative: Environment Variable
 
 ```bash
-# Pull Llama 2 (recommended)
-curl -X POST http://localhost:3000/api/pull -d '{"name": "llama2"}'
-
-# Or pull a smaller model
-curl -X POST http://localhost:3000/api/pull -d '{"name": "tinyllama"}'
-
-# Or Mistral
-curl -X POST http://localhost:3000/api/pull -d '{"name": "mistral"}'
+export OLLAMA_ORIGINS="*"
+ollama serve
 ```
 
-## Features
+## 📦 Pulling Models
 
-- 🇳🇬 Nigerian flag color scheme (green and white)
-- 💬 Real-time chat interface
-- 🤖 Multiple model support
-- 📱 Responsive design
-- ⚡ Typing indicators
-- 🎨 Beautiful UI with smooth animations
+Before using the chatbot, ensure models are available on the Ollama server:
 
-## Troubleshooting
+```bash
+# On the server running Ollama
+ollama pull llama2
+ollama pull mistral
+ollama pull codellama
+ollama pull tinyllama  # Smaller, faster model
+```
 
-1. **"No models detected"**: Pull a model using the commands above
-2. **"Unable to connect"**: Make sure the proxy server is running (`node proxy-server.js`)
-3. **Model not responding**: The model might still be downloading, wait a few minutes
+## ✨ Features
 
-## Requirements
+- 🇳🇬 **Nigerian Flag Colors** - Green and white theme
+- 💬 **Real-time Chat** - Streaming responses for better UX
+- 🤖 **Multiple Models** - Switch between different AI models
+- 📱 **Responsive Design** - Works on all devices
+- ⚡ **Fast & Lightweight** - No backend required
+- 🎨 **Beautiful UI** - Smooth animations and transitions
+- 🚫 **Cancel Requests** - Press ESC to stop generation
 
-- Node.js (for the proxy server)
-- Python 3 or any web server (optional, for serving files)
-- Internet connection to reach the Ollama service
+## 🛠️ Configuration
+
+To change the Ollama server URL, edit `script.js`:
+
+```javascript
+const OLLAMA_API_URL = 'https://your-ollama-server.com';
+```
+
+## 📝 Environment Setup
+
+No environment variables or backend setup required! The app runs entirely in the browser.
+
+## 🔧 Troubleshooting
+
+### "CORS Configuration Required"
+The Ollama server needs to allow cross-origin requests. See CORS Configuration section above.
+
+### "No models detected"
+Models need to be pulled on the Ollama server first. Use `ollama pull [model-name]`.
+
+### "Unable to connect"
+1. Check if the Ollama service is running
+2. Verify CORS is properly configured
+3. Ensure you have internet connection
+
+## 🏗️ Project Structure
+
+```
+naija-gpt/
+├── index.html       # Main HTML file
+├── styles.css       # Styling with Nigerian colors
+├── script.js        # Chat logic and Ollama integration
+├── vercel.json      # Vercel deployment config
+├── package.json     # Project metadata
+└── README.md        # Documentation
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import project in Vercel
+3. Deploy (no build settings needed)
+
+### Netlify
+
+1. Drag and drop the folder to Netlify
+2. Or connect GitHub repository
+
+### GitHub Pages
+
+1. Enable GitHub Pages in repository settings
+2. Select main branch and root folder
+
+## 📄 License
+
+MIT License - Feel free to use this project for any purpose!
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to submit issues and pull requests.
+
+## 🇳🇬 About Naija GPT
+
+Naija GPT celebrates Nigerian innovation in AI, featuring the vibrant colors of the Nigerian flag while providing a modern, accessible interface for AI interactions.
