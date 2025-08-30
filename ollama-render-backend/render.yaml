@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ollama-api-naija
+    runtime: docker
+    repo: https://github.com/YOUR_USERNAME/ollama-render-backend
+    region: oregon # or singapore, frankfurt, ohio
+    plan: free # or starter ($7/month for more resources)
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: OLLAMA_ORIGINS
+        value: "*"  # Change to your frontend domain in production
+      - key: OLLAMA_HOST
+        value: "0.0.0.0"
+    autoDeploy: true # Auto deploy on git push

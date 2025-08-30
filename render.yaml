@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ollama-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile.ollama
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: OLLAMA_ORIGINS
+        value: "*"
+      - key: OLLAMA_HOST
+        value: "0.0.0.0:11434"
+      - key: OLLAMA_MODELS
+        value: "llama2"
+    disk:
+      name: ollama-models
+      mountPath: /root/.ollama
+      sizeGB: 10

@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Models (large files)
+models/
+*.bin
+*.gguf
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local

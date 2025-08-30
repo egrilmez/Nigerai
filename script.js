@@ -1,5 +1,9 @@
 // Direct connection to Ollama service - no proxy needed
-const OLLAMA_API_URL = 'https://ollama-xoa4.onrender.com';
+// Options:
+// 1. Your Render instance (needs fixing): 'https://ollama-xoa4.onrender.com'
+// 2. Local Ollama: 'http://localhost:11434'
+// 3. Any public Ollama API endpoint
+const OLLAMA_API_URL = 'http://localhost:11434'; // Change this to your working endpoint
 
 const chatMessages = document.getElementById('chatMessages');
 const messageInput = document.getElementById('messageInput');
@@ -15,7 +19,12 @@ function addMessage(content, isUser = false) {
     
     const senderSpan = document.createElement('span');
     senderSpan.className = 'message-sender';
-    senderSpan.textContent = isUser ? 'You' : 'Naija GPT';
+    senderSpan.className = 'message-sender';
+    if (isUser) {
+        senderSpan.textContent = 'You';
+    } else {
+        senderSpan.innerHTML = 'n<strong>AI</strong>ja GPT';
+    }
     
     const contentDiv = document.createElement('div');
     contentDiv.className = 'message-content';
@@ -33,7 +42,7 @@ function showTypingIndicator() {
     const typingDiv = document.createElement('div');
     typingDiv.className = 'message bot-message typing-message';
     typingDiv.innerHTML = `
-        <span class="message-sender">Naija GPT</span>
+        <span class="message-sender">n<strong>AI</strong>ja GPT</span>
         <div class="typing-indicator">
             <span></span>
             <span></span>
@@ -230,7 +239,7 @@ function showNoModelsWarning() {
     if (firstMessage) {
         firstMessage.innerHTML = `
             <strong>⚠️ No models detected on the Ollama server!</strong><br><br>
-            To use Naija GPT, you need to pull a model first. Use these commands on the server:<br><br>
+            To use n<strong>AI</strong>ja GPT, you need to pull a model first. Use these commands on the server:<br><br>
             <code>ollama pull llama2</code><br>
             <code>ollama pull mistral</code><br>
             <code>ollama pull codellama</code><br><br>

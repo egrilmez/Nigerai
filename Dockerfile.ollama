@@ -1,0 +1,18 @@
+FROM ollama/ollama:latest
+
+# Set CORS environment variable
+ENV OLLAMA_ORIGINS="*"
+ENV OLLAMA_HOST="0.0.0.0"
+
+# Expose the port
+EXPOSE 11434
+
+# Create a startup script
+RUN echo '#!/bin/bash\n\
+ollama serve &\n\
+sleep 5\n\
+ollama pull llama2\n\
+wait' > /start.sh && chmod +x /start.sh
+
+# Start Ollama
+CMD ["/start.sh"]

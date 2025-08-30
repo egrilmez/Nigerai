@@ -1,4 +1,4 @@
-# Naija GPT Chatbot
+# n**AI**ja GPT Chatbot
 
 A beautiful AI chatbot interface with Nigerian flag colors (green and white) that connects to an Ollama AI service.
 
@@ -141,6 +141,6 @@ MIT License - Feel free to use this project for any purpose!
 
 Contributions are welcome! Feel free to submit issues and pull requests.
 
-## 🇳🇬 About Naija GPT
+## 🇳🇬 About n**AI**ja GPT
 
-Naija GPT celebrates Nigerian innovation in AI, featuring the vibrant colors of the Nigerian flag while providing a modern, accessible interface for AI interactions.
+n**AI**ja GPT celebrates Nigerian innovation in AI, featuring the vibrant colors of the Nigerian flag while providing a modern, accessible interface for AI interactions.

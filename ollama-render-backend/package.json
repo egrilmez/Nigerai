@@ -1,0 +1,11 @@
+{
+  "name": "ollama-backend-naija",
+  "version": "1.0.0",
+  "description": "Ollama API backend for nAIja GPT with CORS support",
+  "scripts": {
+    "test": "./api-test.sh"
+  },
+  "keywords": ["ollama", "ai", "api", "cors", "naija"],
+  "author": "",
+  "license": "MIT"
+}
