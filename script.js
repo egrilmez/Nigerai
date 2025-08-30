@@ -148,7 +148,7 @@ function showNoModelsWarning() {
     if (firstMessage) {
         firstMessage.innerHTML = `
             <strong>⚠️ No models detected on the Ollama server!</strong><br><br>
-            To use NigeriaAI, you need to pull a model first. Try one of these popular models:<br><br>
+            To use AfricAI GPT, you need to pull a model first. Try one of these popular models:<br><br>
             <code>curl -X POST https://ollama-xoa4.onrender.com/api/pull -d '{"name": "llama2"}'</code><br>
             <code>curl -X POST https://ollama-xoa4.onrender.com/api/pull -d '{"name": "mistral"}'</code><br>
             <code>curl -X POST https://ollama-xoa4.onrender.com/api/pull -d '{"name": "codellama"}'</code><br><br>

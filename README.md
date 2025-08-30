@@ -1,4 +1,4 @@
-# NigeriaAI Chatbot
+# AfricAI GPT Chatbot
 
 A beautiful chatbot interface with Nigerian flag colors that connects to an Ollama AI service.
 
